@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useMood } from '../context/MoodContext.jsx';
 
 const Emoji = () => {
-    const [happy, setHappy] = useState(true);
-
-    const changeMood = () => {
-        setHappy(!happy);
-    }
+    const { happy, changeMood } = useMood();
 
     return (
         <>
         <div>
-            {happy ? "😊" : "😢"}
+            {happy}
         </div>
         <button onClick={changeMood}>Change Mood</button>
     </>
